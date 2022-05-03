@@ -29,7 +29,11 @@ public class ButtonController : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Fourth Level")
         {
-            GM.instance.LoadNextLevel("First Level"); //switch na Fifth!
+            GM.instance.LoadNextLevel("Fifth Level");
+        }
+        if (SceneManager.GetActiveScene().name == "Fifth Level")
+        {
+            GM.instance.LoadNextLevel("First Level");
         }
     }
     public void RestartLevel()
