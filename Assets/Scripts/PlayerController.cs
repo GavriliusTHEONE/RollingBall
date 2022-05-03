@@ -110,6 +110,8 @@ public class PlayerController : MonoBehaviour
             won = true;
             victoryscreen.SetActive(true);
             nextlevelButton.SetActive(true);
+            restartButton.SetActive(true);
+            timecount = timecount - Time.deltaTime;
         }
         
         
