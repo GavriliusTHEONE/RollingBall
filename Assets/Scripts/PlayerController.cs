@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public GameObject TheHunter;
     public bool start = false;
     private bool won = false;
+    private bool loss = false;
     public void StartGame()
     {
         start = true;
@@ -82,6 +83,14 @@ public class PlayerController : MonoBehaviour
                 defeatscreen.SetActive(false);
                 restartButton.SetActive(false);
             }
+        }
+
+        if (loss == true)
+        {
+            speed = 0;
+            defeatscreen.SetActive(true);
+            restartButton.SetActive(true);
+            timecount = timecount - Time.deltaTime;
         }
 
         if (timecount > 60)
@@ -169,7 +178,12 @@ public class PlayerController : MonoBehaviour
             Vector3 bump = new Vector3(0, y: 15, z: 0);
             rb.AddForce(speed * bump);
         }
+        if (collision.gameObject.CompareTag("killer"))
+        {
+            loss = true;
+        }
     }
+
     
     
 
